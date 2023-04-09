@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { DatePickerProps } from "antd";
+
+import dayjs from "dayjs";
 import { DatePicker } from "antd";
 import { fetchAllPost } from "../../store/dataSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,12 +34,9 @@ const List = () => {
     let startDate1 = Date.parse(date1);
     let endDate = Date.parse(date2);
 
-    console.log("curent---<", Date.parse(dateNow));
+    console.log("curent---<", item.date);
     console.log("start---<", startDate1);
     console.log("end---<", endDate);
-
-    console.log(dateNow > startDate1);
-    console.log(dateNow < endDate);
 
     if (startDate1 == 946674000000 || endDate == 946674000000) {
       return (
@@ -72,8 +70,15 @@ const List = () => {
       <div className="list_container">
         {users.length !== 0 ? (
           <div className="list_data">
-            <DatePicker onChange={onChange1} />
-            <DatePicker onChange={onChange2} />
+            <DatePicker
+              onChange={onChange1}
+              defaultValue={dayjs("00:00:00", "HH:mm:ss")}
+            />
+
+            <DatePicker
+              onChange={onChange2}
+              defaultValue={dayjs("23:59:59", "HH:mm:ss")}
+            />
           </div>
         ) : (
           <>
