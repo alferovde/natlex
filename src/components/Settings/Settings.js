@@ -80,7 +80,7 @@ const Settings = () => {
           layout="horizontal"
           style={{ maxWidth: 600 }}
         >
-          <Form.Item label="Input">
+          <Form.Item label="Заголовок">
             <Input
               value={currentUser.title}
               onChange={(e) => {
@@ -89,7 +89,7 @@ const Settings = () => {
             />
           </Form.Item>
 
-          <Form.Item label="TextArea">
+          <Form.Item label="Текст">
             <TextArea
               rows={4}
               value={currentUser.body}
@@ -98,7 +98,7 @@ const Settings = () => {
               }}
             />
           </Form.Item>
-          <Form.Item label="TextArea">
+          <Form.Item label="Цвет фона">
             <Select
               defaultValue="white"
               style={{ width: 120 }}

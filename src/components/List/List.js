@@ -33,6 +33,13 @@ const List = () => {
     let startDate1 = Date.parse(date1);
     let endDate = Date.parse(date2);
 
+    console.log("curent---<", Date.parse(dateNow));
+    console.log("start---<", startDate1);
+    console.log("end---<", endDate);
+
+    console.log(dateNow > startDate1);
+    console.log(dateNow < endDate);
+
     if (startDate1 == 946674000000 || endDate == 946674000000) {
       return (
         <div
@@ -45,7 +52,7 @@ const List = () => {
           <p>{dateNow.toDateString()}</p>
         </div>
       );
-    } else if (startDate1 < item.date && item.date < endDate) {
+    } else if (item.date >= startDate1 && item.date < endDate) {
       return (
         <div
           className="list_itemuser"
